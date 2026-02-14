@@ -1,0 +1,48 @@
+.settings-layout {
+  display: grid; grid-template-columns: 200px 1fr;
+  gap: 20px; max-width: 900px;
+}
+.settings-nav {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 8px; height: fit-content;
+  position: sticky; top: 0;
+}
+.settings-nav-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px; border-radius: var(--radius-sm);
+  font-size: 13px; color: var(--text-secondary);
+  cursor: pointer; transition: all var(--transition);
+}
+.settings-nav-item:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+.settings-nav-item.active { background: var(--primary-bg); color: var(--primary); font-weight: 500; }
+.settings-content { display: flex; flex-direction: column; gap: 20px; }
+.settings-section {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg); overflow: hidden;
+}
+.settings-section-header {
+  padding: 14px 20px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+}
+.settings-section-header h3 { font-size: 14px; font-weight: 600; }
+.settings-section-body { padding: 20px; display: grid; gap: 16px; }
+.settings-row {
+  display: grid; grid-template-columns: 200px 1fr; gap: 12px; align-items: start;
+}
+.settings-row label { font-size: 13px; font-weight: 500; padding-top: 8px; }
+.settings-row .setting-desc { font-size: 11.5px; color: var(--text-tertiary); margin-top: 2px; }
+
+/* Connection status */
+.connection-status {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px; border-radius: var(--radius-sm);
+  font-size: 12px; font-weight: 500;
+}
+.connection-status.connected { background: var(--success-light); color: #166534; }
+.connection-status.disconnected { background: var(--danger-light); color: #991b1b; }
+.connection-status .dot { width: 8px; height: 8px; border-radius: 50%; }
+.connection-status.connected .dot { background: var(--success); }
+.connection-status.disconnected .dot { background: var(--danger); }

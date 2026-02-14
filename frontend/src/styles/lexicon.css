@@ -1,0 +1,263 @@
+/* ========== LEXICON PAGE ========== */
+.lexicon-layout {
+  display: grid;
+  grid-template-columns: 200px 1fr 320px;
+  gap: 20px;
+  height: calc(100vh - var(--topbar-height) - 48px - 48px);
+}
+
+/* Dictionary sidebar */
+.dict-sidebar {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.dict-sidebar-header {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.dict-sidebar-header h4 { font-size: 13px; font-weight: 600; margin: 0; }
+.dict-list { flex: 1; overflow-y: auto; padding: 8px; }
+.dict-item {
+  padding: 10px 12px; border-radius: var(--radius-md);
+  cursor: pointer; transition: all var(--transition); margin-bottom: 4px;
+}
+.dict-item:hover { background: var(--bg-tertiary); }
+.dict-item.active { background: var(--primary-bg); border: 1px solid rgba(13,148,136,0.2); }
+.dict-item .dict-name { font-size: 13px; font-weight: 600; }
+.dict-item .dict-meta { font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
+.dict-item .dict-actions {
+  display: none; align-items: center; gap: 2px;
+  position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+}
+.dict-item { position: relative; }
+.dict-item:hover .dict-actions { display: flex; }
+.dict-action-btn {
+  width: 20px; height: 20px; border-radius: 3px;
+  border: none; background: none; cursor: pointer;
+  font-size: 12px; color: var(--text-tertiary);
+  display: flex; align-items: center; justify-content: center;
+  transition: all var(--transition);
+}
+.dict-action-btn:hover { background: var(--bg-tertiary); color: var(--text-primary); }
+.dict-action-btn.danger:hover { background: var(--danger-bg, #fee2e2); color: var(--danger); }
+.dict-rename-input {
+  width: 100%; padding: 3px 6px; font-size: 13px; font-weight: 600;
+  border: 1px solid var(--primary); border-radius: 3px;
+  background: var(--bg-primary); color: var(--text-primary); outline: none;
+}
+.dict-share { padding: 8px 14px; border-top: 1px solid var(--border); }
+.dict-share-label { font-size: 11px; color: var(--text-tertiary); display: block; margin-bottom: 4px; }
+.dict-share-row {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; padding: 4px 0;
+}
+
+/* New dict inline form */
+.new-dict-form {
+  padding: 8px 12px; display: flex; flex-direction: column; gap: 6px;
+  border-bottom: 1px solid var(--border);
+}
+.new-dict-form .input-field { font-size: 13px; padding: 5px 8px; }
+
+/* Entry list main area */
+.entry-main {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.entry-toolbar {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.entry-toolbar .entry-search { flex: 1; min-width: 140px; }
+.entry-toolbar .entry-search input {
+  width: 100%; padding: 7px 12px;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--bg-secondary); font-size: 13px; color: var(--text-primary);
+}
+.entry-toolbar .entry-search input:focus { outline: none; border-color: var(--primary); }
+.entry-toolbar .toolbar-actions { margin-left: auto; display: flex; gap: 6px; }
+.entry-list { flex: 1; overflow-y: auto; }
+.entry-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 16px; border-bottom: 1px solid var(--border);
+  cursor: pointer; transition: background var(--transition);
+}
+.entry-item:hover { background: var(--bg-tertiary); }
+.entry-item.active { background: var(--primary-bg); }
+.entry-item .entry-word { font-weight: 600; font-size: 14px; }
+.entry-item .entry-ipa { font-size: 12px; color: var(--text-tertiary); font-style: italic; }
+.entry-item .entry-def { font-size: 12px; color: var(--text-secondary); flex: 1; }
+.entry-item .entry-pos {
+  font-size: 11px; padding: 1px 6px;
+  background: var(--bg-tertiary); border-radius: 4px; color: var(--text-tertiary);
+}
+.entry-item .entry-play {
+  font-size: 14px; color: var(--primary); cursor: pointer;
+  transition: transform var(--transition);
+}
+.entry-item .entry-play:hover { transform: scale(1.2); }
+.entry-empty {
+  padding: 40px 24px; text-align: center; color: var(--text-tertiary);
+  font-size: 13px;
+}
+
+/* Entry detail empty state */
+.entry-detail-empty {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 40px 24px; text-align: center;
+}
+.entry-detail-empty-icon { font-size: 36px; margin-bottom: 12px; opacity: 0.5; }
+.entry-detail-empty-text { font-size: 13px; color: var(--text-tertiary); }
+
+/* Inline entry creation form (inside entry-main) */
+.entry-form-inline {
+  padding: 14px 16px; border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+.entry-form-inline .form-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}
+
+/* Entry detail panel */
+.entry-detail {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  display: flex; flex-direction: column; overflow-y: auto;
+}
+.entry-detail-header {
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+}
+.entry-detail-header .headword { font-size: 22px; font-weight: 700; }
+.entry-detail-header .ipa-display {
+  font-size: 15px; color: var(--text-secondary); font-style: italic; margin-top: 2px;
+}
+.entry-detail-body { padding: 16px 20px; }
+.entry-field { margin-bottom: 16px; }
+.entry-field-label {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.5px; color: var(--text-tertiary); margin-bottom: 4px;
+}
+.entry-field-value { font-size: 13.5px; }
+.example-block {
+  background: var(--bg-tertiary); padding: 10px 14px;
+  border-radius: var(--radius-sm); border-left: 3px solid var(--primary);
+  margin-top: 6px;
+}
+.example-block .example-original { font-style: italic; }
+.example-block .example-trans { color: var(--text-secondary); font-size: 12.5px; margin-top: 2px; }
+
+/* Quick entry overlay */
+.quick-entry-overlay {
+  position: fixed; inset: 0; z-index: 200;
+  background: rgba(0,0,0,0.5); display: flex;
+  align-items: center; justify-content: center;
+}
+.quick-entry-panel {
+  background: var(--bg-primary); border-radius: var(--radius-xl);
+  width: 560px; max-width: 95vw; max-height: 90vh;
+  box-shadow: var(--shadow-lg); overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.quick-entry-header {
+  padding: 16px 20px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.quick-entry-header h3,
+.quick-entry-header h2 {
+  font-size: 15px; font-weight: 600;
+  display: flex; align-items: center; gap: 8px;
+  margin: 0;
+}
+.quick-entry-body { padding: 24px; flex: 1; }
+.quick-record-area { text-align: center; margin-bottom: 20px; }
+.quick-record-btn,
+.record-btn-large {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: var(--danger); color: white;
+  font-size: 22px; display: inline-flex;
+  align-items: center; justify-content: center;
+  border: 3px solid var(--danger-light);
+  transition: all var(--transition); cursor: pointer;
+}
+.quick-record-btn:hover,
+.record-btn-large:hover { transform: scale(1.05); }
+.quick-record-btn.active,
+.record-btn-large.recording { animation: pulse-record 1.5s infinite; }
+.quick-record-hint { margin-top: 8px; font-size: 12px; color: var(--text-tertiary); }
+.quick-entry-fields { display: grid; gap: 12px; }
+.quick-entry-form { padding: 0 20px 20px; }
+.quick-entry-form .form-group { margin-bottom: 12px; }
+.input-lg { font-size: 18px !important; padding: 10px 14px !important; }
+.quick-entry-actions {
+  padding: 12px 20px; border-top: 1px solid var(--border);
+  display: flex; gap: 8px; justify-content: flex-end;
+}
+.quick-recent {
+  max-height: 150px; overflow-y: auto; margin-top: 16px;
+  border-top: 1px solid var(--border); padding: 12px 20px 16px;
+}
+.quick-recent h4,
+.quick-recent h5 {
+  font-size: 11px; font-weight: 600; color: var(--text-tertiary);
+  text-transform: uppercase; margin: 0 0 6px;
+}
+.quick-recent-list { max-height: 120px; overflow-y: auto; }
+.quick-recent-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 4px 0; font-size: 12.5px; border-bottom: 1px solid var(--border);
+}
+.quick-recent-item .num { color: var(--text-tertiary); font-size: 11px; width: 20px; }
+.quick-recent-hw { font-weight: 600; }
+.quick-recent-def { color: var(--text-secondary); }
+
+@keyframes pulse-record {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(239,68,68,0); }
+}
+
+/* X-10: 社区 Tab 切换 */
+.dict-tab-switcher { display: flex; flex: 1; }
+.dict-tab {
+  flex: 1; padding: 6px 0; font-size: 12px; font-weight: 600;
+  text-align: center; cursor: pointer; background: none; border: none;
+  color: var(--text-tertiary); border-bottom: 2px solid transparent;
+  transition: all var(--transition);
+}
+.dict-tab:hover { color: var(--text-secondary); }
+.dict-tab.active { color: var(--primary); border-bottom-color: var(--primary); }
+
+/* 社区搜索结果中词典归属 badge */
+.community-lexicon-badge {
+  font-size: 10px; padding: 2px 6px; border-radius: 4px;
+  background: var(--primary-bg); color: var(--primary);
+  font-weight: 600; white-space: nowrap;
+}
+
+/* 社区全局搜索栏 */
+.community-search-bar {
+  display: flex; gap: 8px; padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.community-search-bar input { flex: 1; }
+
+/* 社区搜索结果词条项中的归属信息 */
+.entry-item .entry-source {
+  font-size: 11px; color: var(--text-tertiary); margin-top: 2px;
+}
+
+/* 贡献词条内联表单 */
+.contribute-form {
+  padding: 14px 16px; border-bottom: 1px solid var(--border);
+  background: var(--bg-secondary);
+}
+.contribute-form .form-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+}

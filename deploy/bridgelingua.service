@@ -1,0 +1,17 @@
+[Unit]
+Description=Bridgelingua Backend API
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/bridgelingua/backend
+Environment="BL_CORS_ORIGINS=[\"http://47.242.239.187\"]"
+Environment="BL_ASR_ENDPOINT=http://localhost:7860"
+Environment="BL_NLLB_ENDPOINT=http://localhost:7861"
+ExecStart=/opt/bridgelingua/backend/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8001 --workers 1
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+.venv/
+backend/.venv/
+venv/
+*.db
+
+# Node
+node_modules/
+frontend/dist/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+
+# Storage
+backend/app/storage/uploads/*
+backend/app/storage/db/*
+!backend/app/storage/uploads/.gitkeep
+!backend/app/storage/db/.gitkeep
+
+# Audio/Media test files
+*.wav
+*.mp3
+*.mp4
+*.flac
+*.ogg
+
+# Images (temp)
+*.jpg
+*.jpeg
+!docs/**/*.png
+!frontend/src/assets/**
+
+# Misc
+nul
+.claude/
